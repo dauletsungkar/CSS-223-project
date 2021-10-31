@@ -13,7 +13,7 @@ class Schedule(models.Model):
         SATURDAY = 'saturday'
         SUNDAY = 'sunday'
 
-    restaurant = models.OneToOneField(Restaurant, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     start_weekday = models.CharField(max_length=100, choices=DayOfWeek.choices)
     started_at = models.TimeField()
     end_weekday = models.CharField(max_length=100, choices=DayOfWeek.choices)
