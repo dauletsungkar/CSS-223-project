@@ -1,4 +1,4 @@
-from .models import Address, PaymentMethods, Restaurant
+from .models import Address, PaymentMethods, Restaurant, Schedule
 
 from django.contrib import admin
 
@@ -13,6 +13,11 @@ class PaymentMethodsInline(admin.TabularInline):
     model = PaymentMethods
 
 
+class ScheduleInline(admin.TabularInline):
+    model = Schedule
+
+
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-    inlines = [AddressInline, PaymentMethodsInline]
+    inlines = [AddressInline, PaymentMethodsInline, ScheduleInline]
+    exclude = ('rating',)
