@@ -5,6 +5,8 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 
-router.register('restaurants', RestaurantModelViewSet)
+router.register(
+    prefix='restaurants', viewset=RestaurantModelViewSet, basename='restaurants'
+)
 
 urlpatterns = router.urls
